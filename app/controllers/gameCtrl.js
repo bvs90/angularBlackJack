@@ -27,14 +27,17 @@ angular.module('app.gameCtrl', [])
   };
 
   this.stick = function(player, index) {
-    var dealerTotal = Dealer.evaluateHand();
+    // var dealerTotal = Dealer.evaluateHand();
     var playerTotal;
+    var dealerTotal;
 
     if(player.score[1] > player.score[0] && player.score[1] <= 21) {
       playerTotal = player.score[1];
     } else {
       playerTotal = player.score[0];
     }
+
+    dealerTotal = Dealer.evaluateHand(playerTotal);
 
     this.gameMessage = this.round.resolveHands(dealerTotal, playerTotal);
   };
