@@ -1,0 +1,13 @@
+li {
+  list-style: none;
+}
+.card {
+  display: inline;
+}
+.card img {
+  border: 1px solid #ccc;
+  display: inline-block;
+  margin: 3px;
+  padding: 3px;
+  border-radius: 8px;
+}

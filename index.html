@@ -1,0 +1,73 @@
+<!doctype HTML>
+<html ng-app="cardApp">
+<head>
+  <title>Angular BlackJack</title>
+  <link rel="stylesheet" href="vendor/bootstrap-3.20.css">
+  <link rel="stylesheet" href="vendor/bootstrap-3.20.css.map">
+  <link rel="stylesheet" href="app/css/main.css">
+</head>
+<body class="container">
+  <div class="row" ng-controller="GameCtrl as game">
+
+    <section class="col-xs-8">
+      <div ng-repeat="player in game.round.players">
+        <h3>Player {{$index + 1}}</h3>
+
+        <div class="bet">
+          <span>Current Bet</span>
+          <button class="btn btn-default" ng-click="game.increaseBet(player)">+</button>
+          <span>${{ player.currentBet }}</span>
+          <button class="btn btn-default" ng-click="game.decreaseBet(player)" ng-disabled="player.currentBet === 5">-</button>
+        </div>
+
+        <div class="bank">
+          <span>Total Cash</span>
+          <span>${{ player.bank }}</span>
+        </div>
+
+        <ul>
+          <li class="card" ng-repeat="card in player.hand"><img src="app/assets/{{ card.name + '-' + card.suit }}.png"></li>
+        </ul>
+        <p>Score: {{ player.score[0] }}</p>
+        <p ng-show="player.score[1] !== player.score[0]">Alt Score: {{ player.score[1] }}</p>
+
+        <button class="btn btn-success" ng-click="game.hitMe(player, $index)">Hit Me!</button>
+        <button class="btn btn-danger" ng-click="game.stick(player, $index)">Stick</button>
+      </div>
+
+      <div>
+        <h3>Dealer</h3>
+        <ul>
+          <li class="card" ng-repeat="card in game.round.dealer.hand" ng-show="card.flipped"><img src="app/assets/{{ card.name + '-' + card.suit }}.png"></li>
+          <li class="card" ng-repeat="card in game.round.dealer.hand" ng-show="!card.flipped"><img src="app/assets/Card-Back.png"></li>
+        </ul>
+        <p>Score: {{ game.round.dealer.score[0] }}</p>
+        <p ng-show="game.round.dealer.score[1] !== game.round.dealer.score[0]">Alt Score: {{ game.round.dealer.score[1] }}</p>
+        <button class="btn btn-warning" ng-click="game.dealAgain()">Deal Again!</button>
+      </div>
+    </section>
+
+    <section class="game-status col-xs-4">
+      <h3>Game Status</h3>
+      <p>{{ game.gameMessage }}</p>
+    </section>
+
+  </div>
+
+
+  <!-- Vendor scripts -->
+  <script src="vendor/angular-1.2.23.js"></script>
+  <script src="vendor/angular-mocks-1.2.23.js"></script>
+  <script src="vendor/ui-bootstrap-0.11.0.js"></script>
+
+  <!-- App scripts -->
+  <script src="app/app.js"></script>
+  <script src="app/controllers/gameCtrl.js"></script>
+  <script src="app/models/card.js"></script>
+  <script src="app/models/dealer.js"></script>
+  <script src="app/models/deck.js"></script>
+  <script src="app/models/hand.js"></script>
+  <script src="app/models/player.js"></script>
+  <script src="app/models/round.js"></script>
+</body>
+</html>
