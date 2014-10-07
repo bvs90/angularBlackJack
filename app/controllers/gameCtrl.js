@@ -10,6 +10,7 @@ angular.module('app.gameCtrl', [])
 
   // reset the round
   this.dealAgain = function() {
+    this.betPlaced = false;
     this.round.dealRound();
     this.gameMessage = '';
   };
@@ -27,7 +28,6 @@ angular.module('app.gameCtrl', [])
   };
 
   this.stick = function(player, index) {
-    // var dealerTotal = Dealer.evaluateHand();
     var playerTotal;
     var dealerTotal;
 
@@ -52,6 +52,12 @@ angular.module('app.gameCtrl', [])
 
   this.decreaseBet = function(player) {
     player.currentBet--;
+  };
+
+  this.betPlaced = false;
+
+  this.placeBet = function() {
+    this.betPlaced = true;
   };
 
 })
