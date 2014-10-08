@@ -5,6 +5,7 @@ angular.module('cardApp', [
   'app.deck',
   'app.gameCtrl',
   'app.hand',
+  'app.messages',
   'app.player',
   'app.round',
 

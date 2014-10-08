@@ -54,12 +54,12 @@ angular.module('app.round', [])
 
     if (dealerScore > 21) {
       player.bank += player.currentBet;
-      return 'Dealer busted, Player wins!';
+      return 'Dealer busted, Player wins $' + player.currentBet;
     } else if(dealerScore === playerScore) {
       return 'Push';
     } else if (playerScore > dealerScore) {
       player.bank += player.currentBet;
-      return 'Player beats dealer!';
+      return 'Player beats dealer!, Player wins $' + player.currentBet;
     } else {
       player.bank -= player.currentBet;
       return 'Dealer beats player';

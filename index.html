@@ -18,7 +18,7 @@
           <button class="btn btn-default" ng-click="game.increaseBet(player)" ng-disabled="game.betPlaced">+</button>
           <span>${{ player.currentBet }}</span>
           <button class="btn btn-default" ng-click="game.decreaseBet(player)" ng-disabled="player.currentBet === 5 || game.betPlaced">-</button>
-          <button class="btn btn-default" ng-click="game.placeBet()">Place Bet!</button>
+          <button class="btn btn-default" ng-click="game.placeBet(player, $index)">Place Bet!</button>
         </div>
 
         <div class="bank">
@@ -52,7 +52,7 @@
 
     <section class="game-status col-xs-4">
       <h3>Game Status</h3>
-      <p>{{ game.gameMessage }}</p>
+      <p ng-repeat="message in game.gameMessages">{{ message }}</p>
     </section>
 
   </div>
@@ -71,6 +71,7 @@
   <script src="app/models/deck.js"></script>
   <script src="app/models/hand.js"></script>
   <script src="app/models/player.js"></script>
+  <script src="app/models/messages.js"></script>
   <script src="app/models/round.js"></script>
 </body>
 </html>
