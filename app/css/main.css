@@ -1,3 +1,20 @@
+@font-face {
+    font-family: 'smokumregular';
+    src: url('../assets/fonts/Smokum-Regular-webfont.eot');
+    src: url('../assets/fonts/Smokum-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../assets/fonts/Smokum-Regular-webfont.woff') format('woff'),
+         url('../assets/fonts/Smokum-Regular-webfont.ttf') format('truetype'),
+         url('../assets/fonts/Smokum-Regular-webfont.svg#smokumregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+h1 {
+  font-family: 'smokumregular';
+  font-size: 5em;
+}
+
 li {
   list-style: none;
 }
