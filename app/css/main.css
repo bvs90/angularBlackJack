@@ -3,6 +3,10 @@ body {
   background-size: cover;
 }
 
+h1 {
+  text-indent: -999em;
+}
+
 li {
   list-style: none;
 }
@@ -11,4 +15,21 @@ li {
 }
 .card img {
   display: inline-block;
+}
+
+
+/* Player Styles */
+.cards {
+  border: 1px solid red;
+  position: absolute;
+  bottom: 175px;
+  left: 25%;
+  margin: auto;
+  width: 50%;
+}
+.card {
+  margin: 5px;
+}
+.cards ul {
+  text-align: center;
 }
