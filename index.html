@@ -29,7 +29,7 @@
 
         <div class="cards" ng-show="game.betPlaced">
           <ul>
-            <li class="card" ng-repeat="card in player.hand"><img src="app/assets/{{ card.name + '-' + card.suit }}.png"></li>
+            <li class="card" ng-repeat="card in player.hand"><img src="app/assets/img/{{ card.name + '-' + card.suit }}.png"></li>
           </ul>
           <p>Score: {{ player.score[0] }}</p>
           <p ng-show="player.score[1] !== player.score[0]">Alt Score: {{ player.score[1] }}</p>
@@ -42,8 +42,8 @@
       <div ng-show="game.betPlaced">
         <h3>Dealer</h3>
         <ul>
-          <li class="card" ng-repeat="card in game.round.dealer.hand" ng-show="card.flipped"><img src="app/assets/{{ card.name + '-' + card.suit }}.png"></li>
-          <li class="card" ng-repeat="card in game.round.dealer.hand" ng-show="!card.flipped"><img src="app/assets/Card-Back.png"></li>
+          <li class="card" ng-repeat="card in game.round.dealer.hand" ng-show="card.flipped"><img src="app/assets/img/{{ card.name + '-' + card.suit }}.png"></li>
+          <li class="card" ng-repeat="card in game.round.dealer.hand" ng-show="!card.flipped"><img src="app/assets/img/Card-Back.png"></li>
         </ul>
         <p>Score: {{ game.round.dealer.score[0] }}</p>
         <p ng-show="game.round.dealer.score[1] !== game.round.dealer.score[0]">Alt Score: {{ game.round.dealer.score[1] }}</p>
