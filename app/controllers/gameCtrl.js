@@ -1,20 +1,18 @@
 angular.module('app.gameCtrl', [])
 
-.controller('GameCtrl', function(Dealer, Player, Hand, Round, Messages) {
-
-  this.round = new Round();
-
-  // this.gameMessages = Messages.gameMessages;
+.controller('GameCtrl', function(Dealer, Player, Hand, Round) {
 
   // deal a round
+  this.round = new Round();
   this.round.dealRound();
-  console.log(this.round);
+
+  this.gameMessages = '';
 
   // reset the round
   this.dealAgain = function() {
     this.betPlaced = false;
     this.round.dealRound();
-    Messages.gameMessages = [];
+    this.gameMessages = '';
   };
 
   // after dealer has completed round, loop through player scores and compare
@@ -25,7 +23,7 @@ angular.module('app.gameCtrl', [])
     player.score = Hand.makeScore(player.hand);
     if(player.score[0] > 21) {
       player.bank -= player.currentBet;
-      Messages.gameMessages.push('Player ' + playerNumber + ' has busted!');
+      this.gameMessages = 'Player ' + playerNumber + ' has busted!';
     }
   };
 
@@ -41,7 +39,7 @@ angular.module('app.gameCtrl', [])
 
     dealerTotal = Dealer.evaluateHand(playerTotal);
 
-    Messages.gameMessages.push(this.round.resolveHands(dealerTotal, playerTotal));
+    this.gameMessages = this.round.resolveHands(dealerTotal, playerTotal);
   };
 
   // betting
@@ -58,7 +56,7 @@ angular.module('app.gameCtrl', [])
   this.placeBet = function(player, index) {
     var playerNumber = index + 1;
 
-    Messages.gameMessages.push('Player ' + playerNumber + ' bets $' + player.currentBet);
+    this.gameMessages = 'Player ' + playerNumber + ' bets $' + player.currentBet;
     this.betPlaced = true;
   };
 

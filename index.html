@@ -11,35 +11,31 @@
     <h1>Angular BlackJack</h1>
 
     <section>
+      <div ng-show="game.betPlaced" class="dealer">
 
-      <div ng-show="game.betPlaced">
-        <h3>Dealer</h3>
-        <ul>
-          <li class="card" ng-repeat="card in game.round.dealer.hand" ng-show="card.flipped"><img src="app/assets/img/{{ card.name + '-' + card.suit }}.png" class="img-responsive"></li>
-          <li class="card" ng-repeat="card in game.round.dealer.hand" ng-show="!card.flipped"><img src="app/assets/img/Card-Back.png" class="img-responsive"></li>
-        </ul>
-        <p>Score: {{ game.round.dealer.score[0] }}</p>
-        <p ng-show="game.round.dealer.score[1] !== game.round.dealer.score[0]">Alt Score: {{ game.round.dealer.score[1] }}</p>
-        <button class="btn btn-warning" ng-click="game.dealAgain()">Deal Again!</button>
+        <div class="cards">
+          <ul>
+            <li class="card" ng-repeat="card in game.round.dealer.hand" ng-show="card.flipped"><img src="app/assets/img/{{ card.name + '-' + card.suit }}.png"></li>
+            <li class="card" ng-repeat="card in game.round.dealer.hand" ng-show="!card.flipped"><img src="app/assets/img/Card-Back.png"></li>
+          </ul>
+        </div>
+
       </div>
-
     </section>
 
     <section>
       <div ng-repeat="player in game.round.players" class="player">
-        <!-- <h3>Player</h3> -->
 
         <div class="cards" ng-show="game.betPlaced">
           <ul>
             <li class="card" ng-repeat="card in player.hand"><img src="app/assets/img/{{ card.name + '-' + card.suit }}.png" class="img-responsive"></li>
           </ul>
-<!--           <p>Score: {{ player.score[0] }}</p>
-          <p ng-show="player.score[1] !== player.score[0]">Alt Score: {{ player.score[1] }}</p> -->
         </div>
 
-        <div>
+        <div class="buttons">
           <button class="btn btn-success" ng-click="game.hitMe(player, $index)">Hit Me!</button>
           <button class="btn btn-danger" ng-click="game.stick(player, $index)">Stick</button>
+          <button class="btn btn-warning" ng-click="game.dealAgain()">Deal Again!</button>
         </div>
 
         <div class="bet">
@@ -51,7 +47,7 @@
         </div>
 
         <div class="bank">
-          <span>Total Cash</span>
+          <span>Total Cash: </span>
           <span>${{ player.bank }}</span>
         </div>
 
@@ -61,8 +57,8 @@
     </section>
 
     <section class="game-status">
-      <h3>Game Status</h3>
-      <p ng-repeat="message in game.gameMessages">{{ message }}</p>
+      <!-- <h3>Game Status</h3> -->
+      <p>{{ game.gameMessages }}</p>
     </section>
 
   </div>
