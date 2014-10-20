@@ -1,3 +1,5 @@
+/* Global styles */
+
 body {
   background: url(../assets/img/Black-Jack-Table.jpg) no-repeat center center fixed;
   background-size: cover;
@@ -7,60 +9,68 @@ body {
 h1 {
   text-indent: -999em;
 }
+
 p, ul, li {
   padding: 0;
   margin: 0;
 }
+
 li {
   list-style: none;
 }
+
 .card {
   display: inline;
 }
+
 .card img {
   display: inline-block;
 }
 
+.player .cards,
+.player .player-actions,
+.player .player-bet,
+.player .player-bank,
+.dealer,
+.game-status {
+  position: absolute;
+}
+
+.cards,
+.player .player-actions,
+.game-status {
+  text-align: center;
+}
 
 /* Player Styles */
 .player .cards {
-  position: absolute;
   bottom: 175px;
   left: 25%;
-  margin: auto;
+  margin: 0 auto;
   width: 50%;
 }
-.cards {
-  text-align: center;
-}
-.player .buttons {
-  border: 1px solid white;
-  position: absolute;
+
+.player .player-actions {
   bottom: 50px;
   left: 40%;
   width: 20%;
-  text-align: center;
 }
 
-.player .bet {
-  border: 1px solid white;
-  position: absolute;
+.player .player-bet {
   bottom: 50px;
   right: 10%;
   width: 25%;
 }
 
-.player .bank {
-  border: 1px solid white;
-  position: absolute;
+.player .player-bank {
   top: 50px;
   right: 10%;
   width: 15%;
+  font-size: 2em;
 }
 
 /* Dealer styles */
 .dealer {
-  position: absolute;
   top: 10px;
   left: 25%;
   margin: auto;
@@ -68,14 +78,11 @@ li {
 }
 
 .game-status {
-  border: 1px solid white;
-  position: absolute;
   bottom: 43%;
   left: 25%;
   margin: auto;
   width: 50%;
-  text-align: center;
-  font-size: 1em;
+  font-size: 1.2em;
 }
 
 /* Card styles */
