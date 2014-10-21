@@ -1,6 +1,6 @@
 angular.module('app.player', [])
 
-.factory('Player', function(Hand, Dealer) {
+.factory('Player', function() {
 
   var Player = function() {
     this.hand = [];
