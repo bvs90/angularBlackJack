@@ -12,11 +12,6 @@ angular.module('app.dealer', [])
     return this.deck.shift();
   };
 
-  // own hand actions
-  this.hit = function() {
-    this.dealOne();
-  };
-
   // current hand
   this.hand = [];
   this.score = null;
