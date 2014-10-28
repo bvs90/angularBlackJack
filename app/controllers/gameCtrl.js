@@ -16,18 +16,17 @@ angular.module('app.gameCtrl', [])
   };
 
   // after dealer has completed round, loop through player scores and compare
-  this.hitMe = function(player, index) {
-    var playerNumber = index + 1;
-
+  this.hitMe = function(player) {
     player.hand.push(Dealer.dealOne());
     player.score = Hand.makeScore(player.hand);
+
     if(player.score[0] > 21) {
       player.bank -= player.currentBet;
-      this.gameMessages = 'Player ' + playerNumber + ' has busted!';
+      this.gameMessages = 'Player has busted!';
     }
   };
 
-  this.stick = function(player, index) {
+  this.stick = function(player) {
     var playerTotal;
     var dealerTotal;
 
@@ -53,10 +52,8 @@ angular.module('app.gameCtrl', [])
 
   this.betPlaced = false;
 
-  this.placeBet = function(player, index) {
-    var playerNumber = index + 1;
-
-    this.gameMessages = 'Player ' + playerNumber + ' bets $' + player.currentBet;
+  this.placeBet = function(player) {
+    this.gameMessages = 'Player bets $' + player.currentBet;
     this.betPlaced = true;
   };
 

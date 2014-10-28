@@ -1,4 +1,4 @@
-ddescribe('Round factory', function() {
+describe('Round factory', function() {
   var mockDealer,
     mockPlayers,
     mockHand;
