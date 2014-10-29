@@ -17,7 +17,7 @@
     <section ng-repeat="player in game.round.players" class="player">
       <div class="cards" ng-show="game.betPlaced">
         <ul>
-          <li class="card" ng-repeat="card in player.hand"><img src="app/assets/img/{{ card.name + '-' + card.suit }}.png" class="img-responsive"></li>
+          <li class="card" ng-repeat="card in player.hand"><img src="app/assets/img/{{ card.name + '-' + card.suit }}.png"></li>
         </ul>
       </div>
 
@@ -32,7 +32,7 @@
         <button class="btn btn-success" ng-click="game.increaseBet(player)" ng-disabled="game.betPlaced">+</button>
         <span>${{ player.currentBet }}</span>
         <button class="btn btn-danger" ng-click="game.decreaseBet(player)" ng-disabled="player.currentBet === 5 || game.betPlaced">-</button>
-        <button class="btn btn-primary" ng-click="game.placeBet(player, $index)">Place Bet!</button>
+        <button class="btn btn-primary" ng-click="game.placeBet(player)">Place Bet!</button>
       </div>
 
       <div class="player-bank">
