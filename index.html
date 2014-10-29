@@ -11,12 +11,7 @@
     <h1>Angular BlackJack</h1>
 
     <section ng-show="game.betPlaced" class="dealer">
-      <div class="cards">
-        <ul>
-          <li class="card" ng-repeat="card in game.round.dealer.hand" ng-show="card.flipped"><img src="app/assets/img/{{ card.name + '-' + card.suit }}.png"></li>
-          <li class="card" ng-repeat="card in game.round.dealer.hand" ng-show="!card.flipped"><img src="app/assets/img/Card-Back.png"></li>
-        </ul>
-      </div>
+      <dealer-cards></dealer-cards>
     </section>
 
     <section ng-repeat="player in game.round.players" class="player">
@@ -27,8 +22,8 @@
       </div>
 
       <div class="player-actions">
-        <button class="btn btn-success" ng-click="game.hitMe(player, $index)">Hit Me!</button>
-        <button class="btn btn-danger" ng-click="game.stick(player, $index)">Stick</button>
+        <button class="btn btn-success" ng-click="game.hitMe(player)">Hit Me!</button>
+        <button class="btn btn-danger" ng-click="game.stick(player)">Stick</button>
         <button class="btn btn-warning" ng-click="game.dealAgain()">Deal Again!</button>
       </div>
 
@@ -60,7 +55,8 @@
 
   <!-- App scripts -->
   <script src="app/app.js"></script>
-  <script src="app/controllers/gameCtrl.js"></script>
+  <script src="app/controllers/game-ctrl.js"></script>
+  <script src="app/components/dealer-cards.js"></script>
   <script src="app/models/card.js"></script>
   <script src="app/models/dealer.js"></script>
   <script src="app/models/deck.js"></script>

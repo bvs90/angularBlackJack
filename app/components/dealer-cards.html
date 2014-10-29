@@ -1,0 +1,6 @@
+<div class="cards">
+  <ul>
+    <li class="card" ng-repeat="card in game.round.dealer.hand" ng-show="card.flipped"><img src="app/assets/img/{{ card.name + '-' + card.suit }}.png"></li>
+    <li class="card" ng-repeat="card in game.round.dealer.hand" ng-show="!card.flipped"><img src="app/assets/img/Card-Back.png"></li>
+  </ul>
+</div>
