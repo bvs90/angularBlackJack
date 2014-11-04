@@ -1,0 +1,5 @@
+<div class="cards" ng-show="game.betPlaced">
+  <ul>
+    <li class="card" ng-repeat="card in player.hand"><img src="app/assets/img/{{ card.name + '-' + card.suit }}.png"></li>
+  </ul>
+</div>

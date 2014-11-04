@@ -13,6 +13,7 @@ angular.module('cardApp', [
 
   // components
   'app.dealerCards',
+  'app.playerCards',
 
   // third-party dependencies
   'ui.bootstrap'

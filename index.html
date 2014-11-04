@@ -15,11 +15,7 @@
     </section>
 
     <section ng-repeat="player in game.round.players" class="player">
-      <div class="cards" ng-show="game.betPlaced">
-        <ul>
-          <li class="card" ng-repeat="card in player.hand"><img src="app/assets/img/{{ card.name + '-' + card.suit }}.png"></li>
-        </ul>
-      </div>
+      <player-cards></player-cards>
 
       <div class="player-actions">
         <button class="btn btn-success" ng-click="game.hitMe(player)">Hit Me!</button>
@@ -57,6 +53,7 @@
   <script src="app/app.js"></script>
   <script src="app/controllers/game-ctrl.js"></script>
   <script src="app/components/dealer-cards.js"></script>
+  <script src="app/components/player-cards.js"></script>
   <script src="app/models/card.js"></script>
   <script src="app/models/dealer.js"></script>
   <script src="app/models/deck.js"></script>
